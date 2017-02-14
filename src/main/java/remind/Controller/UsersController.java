@@ -16,6 +16,7 @@ public class UsersController {
 	
 	@Autowired
 	private UserRepository userRepository;
+	
 	@GetMapping("/gotojoin")
 	public String goJoin(){
 		System.out.println("회원가입폼으로");
