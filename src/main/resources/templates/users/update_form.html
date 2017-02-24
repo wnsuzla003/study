@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+{{> /include/header }}
+</head>
+<body>
+	{{#user}}
+	<form action="/users/update/{{id}}" method="post">
+		아이디:<input type="text" name="userId" value={{userId}}> <br><br>
+		비밀번호:<input type="password" name="password" placeholder="password"><br><br>
+		이름:<input type="text" name = "name" value={{name}}><br><br>
+		이메일:<input type="email" name="email" value={{email}}>	<br><br>
+		<input type="submit" value="확인">	
+	</form>
+	{{/user}}
+</body>
+</html>
