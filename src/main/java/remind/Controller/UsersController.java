@@ -30,9 +30,9 @@ public class UsersController {
 		System.out.println("회원가입폼으로");
 		return "/users/join_form";
 	}
-	
+
 	@GetMapping("/logout")
-	public String logout(HttpSession session){
+	public String logout(HttpSession session) {
 		session.removeAttribute("loginUser");
 		return "redirect:/";
 	}
@@ -81,15 +81,27 @@ public class UsersController {
 			return "/users/login_form";
 		}
 
-		if (!dbUser.matchPassword(password)) {
-			log.debug("matchPassword false");
-			return "/users/login_form";
-		}
-
+	
 		session.setAttribute("loginUser", dbUser);
-		log.debug("session값:{}",session.getAttribute("loginUser").toString());
+		log.debug("session값:{}", session.getAttribute("loginUser").toString());
 		log.debug("로그인 세션 추가");
 		return "redirect:/";
 
 	}
+
+	@GetMapping("/checkLogin")
+	public String checkLogin(HttpSession session) {
+		System.out.println("로그인 체크");
+
+		if (LoginSession.isLogin(session)) {
+			return "/question/gotoquestion";
+		}
+
+		if (!LoginSession.isLogin(session)) {
+			return "/users/join_form";
+		}
+
+		return "redirect:/";
+	}
+
 }

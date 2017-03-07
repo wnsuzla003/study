@@ -3,7 +3,7 @@ package remind.utility;
 import javax.servlet.http.HttpSession;
 
 public class LoginSession {
-	 public static final String SESSION_USER_KEY="LoingUser";
+	 public static final String SESSION_USER_KEY="loginUser";
 	 
 	 public static Boolean isLogin(HttpSession session){
 		 Object logined = session.getAttribute(SESSION_USER_KEY);

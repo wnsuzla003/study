@@ -22,6 +22,8 @@ public class QnaController {
 		return "/question/question_form";
 	}
 	
+	
+	
 	@PostMapping("")
 	public String getQ(Question question, Model model){
 		qnaRepository.save(question);
